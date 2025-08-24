@@ -1,0 +1,145 @@
+:root{
+  --black:#000;
+  --rose:#eac3cb;        
+  --gold:#d4af37;        
+  --ink:#111;
+  --ink-2:#181818;
+  --text:#f7f7f7;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:'Segoe UI',Arial,Helvetica,sans-serif;
+  background:var(--black);
+  color:var(--text);
+  line-height:1.5;
+}
+
+
+.topbar{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 20px;background:rgba(0,0,0,.7);
+  backdrop-filter: blur(6px);
+  border-bottom:1px solid rgba(212,175,55,.25);
+}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{height:40px;width:auto;filter: drop-shadow(0 0 8px rgba(212,175,55,.6));}
+.brand-name{
+  font-weight:700;letter-spacing:.3px;
+  background: linear-gradient(90deg,var(--gold),var(--rose));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.nav a{
+  color:var(--rose);text-decoration:none;font-weight:600;
+  margin-left:18px;transition:.2s;
+}
+.nav a:hover{color:var(--gold)}
+
+.hero{
+  position:relative;height:70vh;
+  background:url('../img/hero.jpg') center/cover no-repeat;
+  display:grid;place-items:center;text-align:center;
+}
+.hero .overlay{
+  position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.85));
+}
+.hero-inner{position:relative;padding:0 16px;max-width:900px;animation:fadeInUp .8s ease both}
+.hero h1{font-size:clamp(28px,5vw,48px);margin-bottom:10px;color:var(--rose)}
+.hero p{opacity:.9;margin-bottom:22px}
+.btn{
+  display:inline-block;border:none;cursor:pointer;
+  padding:12px 22px;border-radius:10px;font-weight:700;text-decoration:none;
+  transition:transform .15s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+}
+.btn.cta{background:var(--rose);color:#000;box-shadow:0 0 0 rgba(0,0,0,0)}
+.btn.cta:hover{background:var(--gold);transform:translateY(-1px);box-shadow:0 8px 24px rgba(212,175,55,.25)}
+.btn.ghost{background:transparent;color:var(--rose);border:1px solid var(--rose)}
+.btn.ghost:hover{color:#000;background:var(--rose)}
+
+.section{padding:64px 20px}
+.section-head{text-align:center;margin-bottom:26px}
+.section h2{font-size:clamp(22px,4vw,34px);color:var(--gold);margin-bottom:8px}
+
+.services .cards{
+  display:grid;gap:22px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  max-width:1100px;margin:0 auto;
+}
+.card{
+  background:linear-gradient(180deg,var(--ink),var(--ink-2));
+  border:1px solid rgba(234,195,203,.15);
+  border-radius:16px;overflow:hidden;
+  box-shadow:0 4px 18px rgba(0,0,0,.35);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.card img{width:100%;height:230px;object-fit:cover;display:block}
+.card h3{padding:14px 14px 0;font-size:18px;color:var(--rose)}
+.card p{padding:6px 14px 14px;opacity:.9}
+.card .btn{margin:0 14px 16px}
+
+.about .about-inner{
+  max-width:1100px;margin:0 auto;display:grid;gap:24px;
+  grid-template-columns: 1.2fr 1fr;align-items:center;
+}
+.about-photo{width:100%;height:500px ;object-fit: cover;border-radius:100px;border:10px solid rgba(212,175,55,.3);box-shadow:0 8px 22px rgba(0,0,0,.5)}
+.about-text h2{margin-bottom:10px;color:var(--gold)}
+.about-text ul{margin-top:12px;list-style: none}
+.about-text ul li{margin:6px 0;padding-left:20px;position:relative}
+.about-text ul li::before{content:'✓';position:absolute;left:0;color:var(--rose)}
+
+.contato {
+  text-align: center;
+  background-color: #111;
+  color: #eac3cb;
+  padding: 5px;
+}
+
+.contato h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.contato p {
+  margin: 5px 0;
+  font-size: 18px;
+}
+
+.redes-sociais {
+  margin-top: 15px;
+}
+
+.redes-sociais a {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.redes-sociais img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s;
+}
+
+.redes-sociais img:hover {
+  transform: scale(1.1);
+}
+
+
+.footer{
+  border-top:1px solid rgba(212,175,55,.25);
+  text-align:center;padding:20px;color:#bbb;background:#090909;
+}
+
+
+@keyframes fadeInUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+
+@media (max-width: 900px){
+  .about .about-inner{grid-template-columns:1fr}
+}
+@media (max-width: 640px){
+  .form .grid{grid-template-columns:1fr}
+  .nav a{margin-left:12px}
+}
